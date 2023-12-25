@@ -1,6 +1,11 @@
 # fastapi
 Download Raw JSON Files
 
+# before start
+```
+pip install fastapi "uvicorn[standard]" requests
+```
+
 # router endpoints
 ```
 /sql/new_release

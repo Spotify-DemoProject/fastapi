@@ -1,0 +1,13 @@
+
+# Configuration Files
+**/*.ini
+
+# Pycache
+**/__pycache__
+
+# Logs
+**/*.log
+
+# Datas
+**/*.csv
+**/*.json
