@@ -8,6 +8,7 @@ app.add_middleware(LoggerMiddleware)
 # app.add_middleware(ErrorLoggerMiddleware)
 # app.add_middleware(TimeLoggerMiddleware)
 app.include_router(sql_routers.router)
+app.include_router(json_routers.router)
 
 
 if __name__ == "__main__":
