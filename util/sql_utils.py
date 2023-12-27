@@ -222,3 +222,7 @@ def thread_artists_albums(insert_date:str):
 
     for thread in threads:
         thread.join()
+
+if __name__ == "__main__":
+    # TEST
+    browse_new_releases()

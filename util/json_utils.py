@@ -114,3 +114,7 @@ def thread_artists(insert_date:str):
 
     for thread in threads:
         thread.join()
+
+if __name__ == "__main__":
+    thread_albums(insert_date="2023-12-25")
+    

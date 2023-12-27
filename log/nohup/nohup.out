@@ -1,0 +1,848 @@
+/home/hooniegit/.pyenv/versions/3.12.1/bin/python3: can't open file '/home/hooniegit/main.py': [Errno 2] No such file or directory
+INFO:     Started server process [698531]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     116.123.125.15:52824 - "GET /docs HTTP/1.1" 200 OK
+INFO:     116.123.125.15:52824 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     116.123.125.15:53697 - "GET /docs HTTP/1.1" 200 OK
+INFO:     116.123.125.15:53697 - "GET /openapi.json HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+INFO:     185.180.143.138:58298 - "GET / HTTP/1.1" 404 Not Found
+INFO:     172.22.0.5:59208 - "GET /sql/new_release HTTP/1.1" 200 OK
+INFO:     172.22.0.5:53274 - "GET /sql/featured_playlists HTTP/1.1" 200 OK
+Exception in thread Thread-9 (do_work):
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/sql_utils.py", line 190, in do_work
+    for album in response['items']:
+                 ~~~~~~~~^^^^^^^^^
+KeyError: 'items'
+Exception in thread Thread-6 (do_work):
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/sql_utils.py", line 190, in do_work
+    for album in response['items']:
+                 ~~~~~~~~^^^^^^^^^
+KeyError: 'items'
+Exception in thread Thread-3 (do_work):
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/sql_utils.py", line 190, in do_work
+    for album in response['items']:
+                 ~~~~~~~~^^^^^^^^^
+KeyError: 'items'
+Exception in thread Thread-7 (do_work):
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/sql_utils.py", line 190, in do_work
+    for album in response['items']:
+                 ~~~~~~~~^^^^^^^^^
+KeyError: 'items'
+INFO:     172.22.0.5:46970 - "GET /sql/artists_albums?insert_date=2023-12-25 HTTP/1.1" 200 OK
+INFO:     172.22.0.5:53608 - "GET /sql/related_artists?insert_date=2023-12-26 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 91, in receive_nowait
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 91, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/router/sql_routers.py", line 16, in get_artists_related_artists
+    return thread_artists_related_artists(insert_date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/sql_utils.py", line 160, in thread_artists_related_artists
+    thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: range() arg 3 must not be zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 98, in dispatch
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException
+INFO:     172.22.0.5:40750 - "GET /sql/artists_albums?insert_date=2023-12-26 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 91, in receive_nowait
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 91, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/router/sql_routers.py", line 20, in get_artists_albums
+    return thread_artists_albums(insert_date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/sql_utils.py", line 215, in thread_artists_albums
+    thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: range() arg 3 must not be zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 98, in dispatch
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException
+INFO:     172.22.0.5:50214 - "GET /json/artists?insert_date=2023-12-25 HTTP/1.1" 200 OK
+INFO:     172.22.0.5:39894 - "GET /json/artists?insert_date=2023-12-26 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 91, in receive_nowait
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 91, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/router/json_routers.py", line 12, in get_artists
+    return thread_artists(insert_date=insert_date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/json_utils.py", line 107, in thread_artists
+    thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: range() arg 3 must not be zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 98, in dispatch
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException
+WARNING:  Invalid HTTP request received.
+INFO:     65.49.1.90:20095 - "GET / HTTP/1.1" 404 Not Found
+INFO:     65.49.1.86:54273 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     65.49.1.88:18553 - "GET /?format=json HTTP/1.1" 404 Not Found
+WARNING:  Unsupported upgrade request.
+WARNING:  No supported WebSocket library detected. Please use "pip install 'uvicorn[standard]'", or install 'websockets' or 'wsproto' manually.
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     198.235.24.162:61936 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     164.92.106.209:50600 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     159.223.69.52:33250 - "GET / HTTP/1.1" 404 Not Found
+INFO:     106.251.202.242:58045 - "GET /docs HTTP/1.1" 200 OK
+INFO:     106.251.202.242:58045 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     172.22.0.5:38214 - "GET /sql/new_release HTTP/1.1" 200 OK
+INFO:     172.22.0.5:39178 - "GET /sql/featured_playlists HTTP/1.1" 200 OK
+INFO:     172.22.0.5:36824 - "GET /sql/related_artists?insert_date=2023-12-27 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 91, in receive_nowait
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 91, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/router/sql_routers.py", line 16, in get_artists_related_artists
+    return thread_artists_related_artists(insert_date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/sql_utils.py", line 160, in thread_artists_related_artists
+    thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: range() arg 3 must not be zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 98, in dispatch
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException
+INFO:     172.22.0.5:46344 - "GET /sql/new_release HTTP/1.1" 200 OK
+INFO:     172.22.0.5:37402 - "GET /sql/featured_playlists HTTP/1.1" 200 OK
+INFO:     172.22.0.5:37346 - "GET /sql/related_artists?insert_date=2023-12-28 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 91, in receive_nowait
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 91, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/router/sql_routers.py", line 16, in get_artists_related_artists
+    return thread_artists_related_artists(insert_date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/sql_utils.py", line 160, in thread_artists_related_artists
+    thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: range() arg 3 must not be zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 98, in dispatch
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException
+INFO:     172.22.0.5:32784 - "GET /sql/new_release HTTP/1.1" 200 OK
+INFO:     172.22.0.5:34014 - "GET /sql/featured_playlists HTTP/1.1" 200 OK
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     170.64.140.41:59338 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     172.22.0.5:50614 - "GET /sql/related_artists?insert_date=2023-12-27 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 91, in receive_nowait
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 91, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/router/sql_routers.py", line 16, in get_artists_related_artists
+    return thread_artists_related_artists(insert_date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/sql_utils.py", line 160, in thread_artists_related_artists
+    thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: range() arg 3 must not be zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 98, in dispatch
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException
+INFO:     172.22.0.5:48428 - "GET /kafka/tracks?insert_date=2023-12-27 HTTP/1.1" 404 Not Found
+INFO:     172.22.0.5:51988 - "GET /kafka/artists?insert_date=2023-12-27 HTTP/1.1" 404 Not Found
+INFO:     172.22.0.5:36088 - "GET /json/albums?insert_date=2023-12-27 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 91, in receive_nowait
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 91, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/router/json_routers.py", line 8, in get_albums
+    return thread_albums(insert_date=insert_date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/json_utils.py", line 63, in thread_albums
+    thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: range() arg 3 must not be zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 98, in dispatch
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException
+INFO:     172.22.0.5:56156 - "GET /sql/artists_albums?insert_date=2023-12-27 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 91, in receive_nowait
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 91, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/router/sql_routers.py", line 20, in get_artists_albums
+    return thread_artists_albums(insert_date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/sql_utils.py", line 215, in thread_artists_albums
+    thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: range() arg 3 must not be zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 98, in dispatch
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException
+INFO:     172.22.0.5:56168 - "GET /kafka/artists?insert_date=2023-12-27 HTTP/1.1" 404 Not Found
+INFO:     172.22.0.5:51910 - "GET /json/albums?insert_date=2023-12-27 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 91, in receive_nowait
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 91, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/router/json_routers.py", line 8, in get_albums
+    return thread_albums(insert_date=insert_date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/json_utils.py", line 63, in thread_albums
+    thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: range() arg 3 must not be zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 98, in dispatch
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException
+INFO:     172.22.0.5:48424 - "GET /json/artists?insert_date=2023-12-27 HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 78, in call_next
+    message = await recv_stream.receive()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 98, in receive
+    return self.receive_nowait()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/anyio/streams/memory.py", line 91, in receive_nowait
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 91, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 84, in call_next
+    raise app_exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 70, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/router/json_routers.py", line 12, in get_artists
+    return thread_artists(insert_date=insert_date)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/util/json_utils.py", line 107, in thread_artists
+    thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: range() arg 3 must not be zero
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 426, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/hooniegit/.pyenv/versions/3.12.1/lib/python3.12/site-packages/starlette/middleware/base.py", line 108, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hooniegit/git/Spotify-DemoProject/fastapi/middleware_c/logger_middleware.py", line 98, in dispatch
+    raise HTTPException(status_code=500, detail="Internal Server Error")
+fastapi.exceptions.HTTPException
+INFO:     172.22.0.5:60702 - "GET /kafka/albums?insert_date=2023-12-27 HTTP/1.1" 404 Not Found
+INFO:     172.22.0.5:60718 - "GET /kafka/artists?insert_date=2023-12-27 HTTP/1.1" 404 Not Found
+INFO:     172.22.0.5:39034 - "GET /kafka/albums?insert_date=2023-12-27 HTTP/1.1" 404 Not Found
+INFO:     172.22.0.5:50918 - "GET /kafka/tracks?insert_date=2023-12-25 HTTP/1.1" 404 Not Found
+INFO:     172.22.0.5:51268 - "GET /kafka/tracks?insert_date=2023-12-26 HTTP/1.1" 404 Not Found
+INFO:     172.22.0.5:33282 - "GET /kafka/tracks?insert_date=2023-12-26 HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+WARNING:  Invalid HTTP request received.
+INFO:     138.68.164.63:36102 - "GET / HTTP/1.1" 404 Not Found
+WARNING:  Invalid HTTP request received.
+INFO:     Started server process [1216973]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
