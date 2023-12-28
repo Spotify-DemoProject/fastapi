@@ -14,60 +14,70 @@ from starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoin
 from starlette.requests import Request
 from starlette.responses import Response
 import logging
+import traceback
 from time import time
 
 
-class ErrorLoggerMiddleware(BaseHTTPMiddleware):
-    async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
+# class ErrorLoggerMiddleware(BaseHTTPMiddleware):
+#     async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
 
-        endpoint_path = request.url.path
-        logger_name = endpoint_path.replace("/", "_")[1:] + "_error"
+#         endpoint_path = request.url.path
+#         logger_name = endpoint_path.replace("/", "_")[1:] + "_error"
 
-        log_file_dir = f"{log_dir}/error/{logger_name}"
-        check_mkdirs(log_file_dir) # module
+#         log_file_dir = f"{log_dir}/error/{logger_name}"
+#         check_mkdirs(log_file_dir) # module
 
-        logger = setup_logger(name=logger_name, level=logging.ERROR, log_dir=log_file_dir)
+#         logger = setup_logger(name=logger_name, level=logging.ERROR, log_dir=log_file_dir)
            
-        try:
-            response = await call_next(request)
-            remove_logger(logger) # module
-            return response
+#         try:
+#             response = await call_next(request)
+#             remove_logger(logger) # module
+#             return response
         
-        except Exception as e:
-            message = f"Internal Server Error - {endpoint_path} - {str(e)}"
-            logger.error(message)
-            send_line_notification_thread(message=message) # module
-            remove_logger(logger) # module
-            raise HTTPException(status_code=500, detail="Internal Server Error")
+#         except Exception as e:
+#             message = f"Internal Server Error - {endpoint_path} - {str(e)}"
+#             logger.error(message)
+#             send_line_notification_thread(message=message) # module
+#             remove_logger(logger) # module
+#             raise HTTPException(status_code=500, detail="Internal Server Error")
 
 
-class TimeLoggerMiddleware(BaseHTTPMiddleware):
-    async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
+# class TimeLoggerMiddleware(BaseHTTPMiddleware):
+#     async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
 
-        endpoint_path = request.url.path
-        logger_name = endpoint_path.replace("/", "_")[1:] + "_info"
+#         endpoint_path = request.url.path
+#         logger_name = endpoint_path.replace("/", "_")[1:] + "_info"
 
-        log_file_dir = f"{log_dir}/time/{logger_name}"
-        check_mkdirs(log_file_dir) # module
+#         log_file_dir = f"{log_dir}/time/{logger_name}"
+#         check_mkdirs(log_file_dir) # module
 
-        logger = setup_logger(name=logger_name, level=logging.INFO, log_dir=log_file_dir)
+#         logger = setup_logger(name=logger_name, level=logging.INFO, log_dir=log_file_dir)
         
-        start_time = time()
+#         start_time = time()
 
-        try:
-            response = await call_next(request)
-            return response
+#         try:
+#             response = await call_next(request)
+#             return response
         
-        except Exception as e:
-            raise HTTPException(status_code=500, detail="Internal Server Error")
+#         except Exception as e:
+#             raise HTTPException(status_code=500, detail="Internal Server Error")
         
-        finally:
-            end_time = time()
-            elapsed_time = end_time - start_time
-            message = f"Elapsed Time: {elapsed_time:.2f} seconds"
-            logger.info(message)
-            remove_logger(logger)  # module
+#         finally:
+#             end_time = time()
+#             elapsed_time = end_time - start_time
+#             message = f"Elapsed Time: {elapsed_time:.2f} seconds"
+#             logger.info(message)
+#             remove_logger(logger)  # module
 
+class CapturedOutput:
+    def __init__(self):
+        self._value = []
+
+    def write(self, text):
+        self._value.append(text)
+
+    def getvalue(self):
+        return ''.join(self._value)
 
 class LoggerMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
@@ -87,17 +97,22 @@ class LoggerMiddleware(BaseHTTPMiddleware):
         logger_error = setup_logger(name=logger_name_error, level=logging.ERROR, log_dir=log_file_dir_error)
         logger_info = setup_logger(name=logger_name_info, level=logging.INFO, log_dir=log_file_dir_info)
         
-        try:
+        try:   
             response = await call_next(request)
             return response
         
         except Exception as e:
-            message = f"Internal Server Error - {endpoint_path} - {str(e)}"
+            exc_type, exc_value, exc_traceback = sys.exc_info()
+            tb_info = traceback.extract_tb(exc_traceback)[-1]
+            filename = tb_info.filename
+            lineno = tb_info.lineno
+            line =tb_info.line
+            message = f"Internal Server Error - {endpoint_path} - {filename} - {lineno} - {line} - {str(e)}"
             logger_error.error(message)
             send_line_notification_thread(message=message) # module
             raise HTTPException(status_code=500, detail="Internal Server Error")
         
-        finally:
+        finally:            
             end_time = time()
             elapsed_time = end_time - start_time
             message = f"Elapsed Time: {elapsed_time:.2f} seconds"

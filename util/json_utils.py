@@ -61,6 +61,12 @@ def thread_albums(insert_date:str):
     num_threads = 10
     artists_per_thread = ceil(len(id_list) / num_threads)
     thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
+    
+    #TEST
+    print(len(thread_list))
+    print(">>>>>>>>>>>>")
+    for single_list in thread_list:
+        print(len(single_list))
 
     threads = []
     for idx, artist_ids in enumerate(thread_list):
