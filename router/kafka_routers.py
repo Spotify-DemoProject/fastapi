@@ -10,7 +10,3 @@ async def get_albums(insert_date:str):
 @router.get("/kafka/artists")
 async def get_artists(insert_date:str):
 	return(publish_message_kafka(insert_date=insert_date, category="artists"))
-
-@router.get("/kafka/tracks")
-async def get_artists(insert_date:str):
-	return(publish_message_kafka(insert_date=insert_date, category="tracks"))

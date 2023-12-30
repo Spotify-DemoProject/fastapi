@@ -69,16 +69,6 @@ from time import time
 #             logger.info(message)
 #             remove_logger(logger)  # module
 
-class CapturedOutput:
-    def __init__(self):
-        self._value = []
-
-    def write(self, text):
-        self._value.append(text)
-
-    def getvalue(self):
-        return ''.join(self._value)
-
 class LoggerMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next: RequestResponseEndpoint) -> Response:
 

@@ -53,7 +53,7 @@ def browse_new_releases():
                 execute_query(query_relations, values)
 
         end_time = time()
-        remain_time = 1.5 - (end_time - start_time)
+        remain_time = 2.0 - (end_time - start_time)
         sleep(remain_time) if remain_time > 0 else sleep(0)
 
 def browse_featured_playlists():
@@ -75,7 +75,7 @@ def browse_featured_playlists():
     response = get_response(2, endpoint=endpoint, params=params)
 
     end_time = time()
-    remain_time = 1.5 - (end_time - start_time)
+    remain_time = 2.0 - (end_time - start_time)
     sleep(remain_time)      
 
     start_time = time()
@@ -120,7 +120,7 @@ def browse_featured_playlists():
             execute_query(query_artists, values)
 
     end_time = time()
-    remain_time = 1.5 - (end_time - start_time)
+    remain_time = 2.0 - (end_time - start_time)
     sleep(remain_time) if remain_time > 0 else sleep(0)
 
 def thread_artists_related_artists(insert_date):
@@ -152,7 +152,7 @@ def thread_artists_related_artists(insert_date):
                 execute_query(query_artists, values)
 
             end_time = time()
-            remain_time = 1.5 - (end_time - start_time)
+            remain_time = 2.0 - (end_time - start_time)
             sleep(remain_time) if remain_time > 0 else sleep(0)
 
     num_threads = 10
@@ -207,7 +207,7 @@ def thread_artists_albums(insert_date:str):
                 execute_query(query_relations, values)
 
             end_time = time()
-            remain_time = 1.5 - (end_time - start_time)
+            remain_time = 2.0 - (end_time - start_time)
             sleep(remain_time) if remain_time > 0 else sleep(0)  
 
     num_threads = 10

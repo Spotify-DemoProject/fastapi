@@ -19,8 +19,6 @@ def get_acccess_token(cnt):
 
 def get_response(cnt, endpoint, params:dict=None):
     import requests, json
-    
-    raise ValueError("Error, Hello!")
 
     access_token = get_acccess_token(cnt)
     url = f"https://api.spotify.com/v1/{endpoint}"
