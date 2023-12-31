@@ -1,9 +1,9 @@
 # fastapi
-Spotify 데이터 파이프라인에서 ETL 작업을 수행합니다.<br><br>
+Spotify 데이터 파이프라인에서 ETL 작업을 수행합니다.<br><br>
 
 # Structure
 <img width="772" alt="스크린샷 2024-01-01 오전 1 33 22" src="https://github.com/Spotify-DemoProject/fastapi/assets/130134750/7884869b-5e3c-47c5-82ad-56f92b7dc280">
-<br>
+<br><br>
 
 # Before Start
 ``` bash
