@@ -10,3 +10,7 @@ async def get_albums(insert_date:str):
 @router.get("/parquet/artists")
 async def get_artists(insert_date:str):
 	return(upload_parquets(insert_date=insert_date, category="artists"))
+
+@router.get("/parquet/tracks")
+async def get_tracks(insert_date:str):
+	return(upload_parquets(insert_date=insert_date, category="tracks"))

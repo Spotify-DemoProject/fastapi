@@ -11,6 +11,10 @@ async def get_browse_new_releases():
 async def get_browse_featured_playlists():
 	return browse_featured_playlists()
 
+@router.get("/sql/playlists_tracks")
+async def get_playlists_tracks():
+    return thread_playlists_tracks()
+
 @router.get("/sql/related_artists")
 async def get_artists_related_artists(insert_date:str):
 	return thread_artists_related_artists(insert_date)

@@ -26,11 +26,14 @@ def upload_to_s3(bucket_name:str, category:str, local_dir:str):
             s3_root = f"{category}/{file_root}"
             
             for file in files:
-                local_path = os.path.join(root, file)
-                relative_path = os.path.relpath(local_path, local_dir)
-                s3_path = os.path.join(s3_root, relative_path).replace("\\", "/") 
-                s3.upload_file(local_path, bucket_name, s3_path)
-                print(f'Uploaded {local_path} to {s3_path}')
+                if file.startswith('.'):
+                    pass
+                else:
+                    local_path = os.path.join(root, file)
+                    relative_path = os.path.relpath(local_path, local_dir)
+                    s3_path = os.path.join(s3_root, relative_path).replace("\\", "/") 
+                    s3.upload_file(local_path, bucket_name, s3_path)
+                    print(f'Uploaded {local_path} to {s3_path}')
                 
     except Exception as E:
         print(f"Upload SNAPSHOT : Error Appeared - {E}")

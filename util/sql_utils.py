@@ -109,10 +109,8 @@ def browse_featured_playlists():
     remain_time = 2.0 - (end_time - start_time)
     sleep(remain_time) if remain_time > 0 else sleep(0)
 
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 playlist_ids = []
-def thread_update_playlist_datas():
+def thread_playlists_tracks():
     from datetime import datetime
     from threading import Thread
     from time import time, sleep
@@ -128,7 +126,7 @@ def thread_update_playlist_datas():
         global playlist_ids
         playlist_ids.append(id)
     
-    def return_artists(id_list_thread:list, cnt:int):
+    def return_ids(id_list_thread:list, cnt:int):
         for category_id in id_list_thread:
             start_time = time()
             
@@ -151,7 +149,7 @@ def thread_update_playlist_datas():
 
     threads = []
     for idx, id_list_thread in enumerate(thread_list):
-        thread = Thread(target=return_artists, args=(id_list_thread, idx+1))
+        thread = Thread(target=return_ids, args=(id_list_thread, idx+1))
         threads.append(thread)
         thread.start()
 
@@ -215,8 +213,6 @@ def thread_update_playlist_datas():
 
     for thread in threads:
         thread.join()
-    
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 def thread_artists_related_artists(insert_date):
     from threading import Thread
@@ -315,5 +311,5 @@ if __name__ == "__main__":
     # browse_new_releases()
     # browse_featured_playlists()
     # thread_update_playlist_datas()
-    thread_artists_related_artists(insert_date="2024-01-02")
-    
+    # thread_artists_related_artists(insert_date="2024-01-02")
+    thread_artists_albums(insert_date="2024-01-02")

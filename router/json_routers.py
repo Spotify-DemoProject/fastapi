@@ -10,3 +10,7 @@ async def get_albums(insert_date:str):
 @router.get("/json/artists")
 async def get_artists(insert_date:str):
 	return thread_artists(insert_date=insert_date)
+
+@router.get("/json/tracks")
+async def get_tracks(insert_date:str):
+    return thread_tracks(insert_date=insert_date)
