@@ -16,7 +16,6 @@ def get_acccess_token(cnt):
     access_token = parser.get("SPOTIFY", f"access_token_{cnt}")
     return access_token
 
-
 def get_response(cnt, endpoint, params:dict=None):
     import requests, json
 
@@ -30,7 +29,9 @@ def get_response(cnt, endpoint, params:dict=None):
         response = requests.get(url=url, params=params, headers=headers)
     else:
         response = requests.get(url=url, headers=headers)
-        
+    
+    print(response)
+    
     if response.status_code == 200:
         try:
             data = response.json()
