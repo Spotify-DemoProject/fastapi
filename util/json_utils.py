@@ -61,7 +61,7 @@ def thread_artists(insert_date:str):
     for thread in threads:
         thread.join()
 
-def thread_albums(insert_date:str):
+def thread_albums_b(insert_date:str):
     check_mkdirs(dir=f"{data_dir}/albums/{insert_date}")
 
     query_search = f"""
@@ -109,7 +109,7 @@ def thread_albums(insert_date:str):
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-def thread_albums_new(insert_date:str):
+def thread_albums(insert_date:str):
     check_mkdirs(dir=f"{data_dir}/albums/{insert_date}")
 
     query_search = f"""
