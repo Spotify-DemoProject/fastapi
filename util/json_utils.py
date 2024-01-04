@@ -144,7 +144,7 @@ def thread_albums(insert_date:str):
                     QUERY = """
                         INSERT INTO tracks (track_id, insert_date)
                         VALUES (%s, %s)
-                        ON CONFLICT (artist_id) DO NOTHING;
+                        ON CONFLICT (track_id) DO NOTHING;
                     """
                     VALUES = (track_id, insert_date)
                     execute_query(QUERY=QUERY, VALUES=VALUES)
@@ -169,7 +169,8 @@ def thread_albums(insert_date:str):
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 def thread_tracks(insert_date:str):
-    check_mkdirs(dir=f"{data_dir}/tracks/{insert_date}")
+    check_mkdirs(dir=f"{data_dir}/tracks/main/{insert_date}")
+    check_mkdirs(dir=f"{data_dir}/tracks/audio_features/{insert_date}")
 
     query_search = f"""
                    SELECT track_id FROM tracks
@@ -188,7 +189,45 @@ def thread_tracks(insert_date:str):
             
             response = get_response(cnt=cnt, endpoint=endpoint, params=params)
 
-            file_dir = f"{data_dir}/tracks/{insert_date}/tracks_{cnt}_{index}.json"
+            file_dir = f"{data_dir}/tracks/audio_features/{insert_date}/tracks_{cnt}_{index}.json"
+            
+            try :
+                with open(file_dir, "a") as file:
+                    json.dump(response, file, indent=4)
+            except:
+                with open(file_dir, "w") as file:
+                    json.dump(response, file, indent=4)
+
+            end_time = time()
+            remain_time = 2.0 - (end_time - start_time)
+            sleep(remain_time) if remain_time > 0 else sleep(0)
+            
+            start_time = time()
+            endpoint = "tracks"
+            params = {'ids': ','.join(list_100[index][:50]), 'market' : 'KR'}
+            
+            response = get_response(cnt=cnt, endpoint=endpoint, params=params)
+
+            file_dir = f"{data_dir}/tracks/main/{insert_date}/tracks_{cnt}_{index}_1.json"
+            
+            try :
+                with open(file_dir, "a") as file:
+                    json.dump(response, file, indent=4)
+            except:
+                with open(file_dir, "w") as file:
+                    json.dump(response, file, indent=4)
+
+            end_time = time()
+            remain_time = 2.0 - (end_time - start_time)
+            sleep(remain_time) if remain_time > 0 else sleep(0)            
+
+            start_time = time()
+            endpoint = "tracks"
+            params = {'ids': ','.join(list_100[index][50:]), 'market' : 'KR'}
+            
+            response = get_response(cnt=cnt, endpoint=endpoint, params=params)
+
+            file_dir = f"{data_dir}/tracks/main/{insert_date}/tracks_{cnt}_{index}_2.json"
             
             try :
                 with open(file_dir, "a") as file:
@@ -200,7 +239,7 @@ def thread_tracks(insert_date:str):
             end_time = time()
             remain_time = 2.0 - (end_time - start_time)
             sleep(remain_time) if remain_time > 0 else sleep(0)   
-
+            
     num_threads = 10
     artists_per_thread = ceil(len(id_list) / num_threads)
     thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
@@ -217,5 +256,5 @@ def thread_tracks(insert_date:str):
 
 
 if __name__ == "__main__":
-    thread_artists(insert_date="2023-12-29")
+    thread_tracks(insert_date="2024-01-02")
     
