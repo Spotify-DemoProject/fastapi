@@ -21,4 +21,7 @@ def publish_message_kafka(insert_date:str, category:str):
     publish_message(broker=broker, topic=topic, key=key, message=message)
 
 if __name__ == "__main__":
-    publish_message_kafka(insert_date="2023-12-25", category="albums")
+    # publish_message_kafka(insert_date="2023-12-29", category="artists")
+    # publish_message_kafka(insert_date="2023-12-29", category="albums")
+    # publish_message_kafka(insert_date="2023-12-29", category="tracks/main")
+    publish_message_kafka(insert_date="2023-12-29", category="tracks/audio_features")

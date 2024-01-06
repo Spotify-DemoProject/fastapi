@@ -48,7 +48,7 @@ def thread_artists(insert_date:str):
             remain_time = 2.0 - (end_time - start_time)
             sleep(remain_time) if remain_time > 0 else sleep(0)   
 
-    num_threads = 10
+    num_threads = 12
     artists_per_thread = ceil(len(id_list) / num_threads)
     thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
 
@@ -94,7 +94,7 @@ def thread_albums_b(insert_date:str):
             remain_time = 2.0 - (end_time - start_time)
             sleep(remain_time) if remain_time > 0 else sleep(0)   
 
-    num_threads = 10
+    num_threads = 12
     albums_per_thread = ceil(len(id_list) / num_threads)
     thread_list = [id_list[i:i+albums_per_thread] for i in range(0, len(id_list), albums_per_thread)]
 
@@ -106,8 +106,6 @@ def thread_albums_b(insert_date:str):
 
     for thread in threads:
         thread.join()
-
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 def thread_albums(insert_date:str):
     check_mkdirs(dir=f"{data_dir}/albums/{insert_date}")
@@ -153,7 +151,7 @@ def thread_albums(insert_date:str):
             remain_time = 2.0 - (end_time - start_time)
             sleep(remain_time) if remain_time > 0 else sleep(0)   
 
-    num_threads = 10
+    num_threads = 12
     albums_per_thread = ceil(len(id_list) / num_threads)
     thread_list = [id_list[i:i+albums_per_thread] for i in range(0, len(id_list), albums_per_thread)]
 
@@ -165,8 +163,6 @@ def thread_albums(insert_date:str):
 
     for thread in threads:
         thread.join()
-        
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 def thread_tracks(insert_date:str):
     check_mkdirs(dir=f"{data_dir}/tracks/main/{insert_date}")
@@ -240,7 +236,7 @@ def thread_tracks(insert_date:str):
             remain_time = 2.0 - (end_time - start_time)
             sleep(remain_time) if remain_time > 0 else sleep(0)   
             
-    num_threads = 10
+    num_threads = 12
     artists_per_thread = ceil(len(id_list) / num_threads)
     thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
 
@@ -253,8 +249,8 @@ def thread_tracks(insert_date:str):
     for thread in threads:
         thread.join()
 
-
-
 if __name__ == "__main__":
-    thread_tracks(insert_date="2024-01-02")
+    # thread_artists(insert_date="2023-12-29")
+    thread_albums(insert_date="2024-01-06")
+    # thread_tracks(insert_date="2023-12-29")
     

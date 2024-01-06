@@ -14,5 +14,7 @@ def upload_parquets(category:str, insert_date:str):
     upload_to_s3(bucket_name=bucket_name, category=category, local_dir=local_dir)
     
 if __name__ == "__main__":
-    upload_parquets(category="artists", insert_date="2023-12-25")
-    
+    upload_parquets(category="artists", insert_date="2024-01-02")
+    upload_parquets(category="albums", insert_date="2024-01-02")
+    upload_parquets(category="tracks/main", insert_date="2024-01-02")
+    upload_parquets(category="tracks/audio_features", insert_date="2024-01-02")

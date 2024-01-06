@@ -66,7 +66,7 @@ def browse_featured_playlists():
         'limit' : 1,
         'offset' : 0
     }
-    response = get_response(2, endpoint=endpoint, params=params)
+    response = get_response(3, endpoint=endpoint, params=params)
 
     end_time = time()
     remain_time = 2.0 - (end_time - start_time)
@@ -131,19 +131,17 @@ def thread_playlists_tracks():
             start_time = time()
             
             endpoint = f"browse/categories/{category_id}/playlists?country=KR"
-            try:
-                response = get_response(cnt=cnt, endpoint=endpoint)
-                for playlists in response["playlists"]["items"]:
-                    playlist_id = playlists["id"]
-                    update_playlist_ids(id=playlist_id)
-            except:
-                pass
+
+            response = get_response(cnt=cnt, endpoint=endpoint)
+            for playlists in response["playlists"]["items"]:
+                playlist_id = playlists["id"]
+                update_playlist_ids(id=playlist_id)
             
             end_time = time()
             remain_time = end_time - start_time
             sleep(remain_time) if end_time - start_time < 2 else sleep(0)
             
-    num_threads = 10
+    num_threads = 12
     ids_per_thread = ceil(len(id_list) / num_threads)
     thread_list = [id_list[i:i+ids_per_thread] for i in range(0, len(id_list), ids_per_thread)]
 
@@ -169,39 +167,36 @@ def thread_playlists_tracks():
                 'offset' : 0
             }
 
-            try:
-                response = get_response(cnt=cnt, endpoint=endpoint, params=params)
+            response = get_response(cnt=cnt, endpoint=endpoint, params=params)
 
-                for item in response['items'] :
-                    album_id = item['track']['album']['id']
-                    release_date = item['track']['album']['release_date']
-                    query_albums = f'''
-                                    INSERT INTO albums (album_id, release_date, insert_date)
-                                    values (%s, %s, %s)
-                                    ON CONFLICT (album_id) DO NOTHING;
-                                    '''
-                    values = (album_id, release_date, insert_date)
-                    execute_query(query_albums, values)
+            for item in response['items'] :
+                album_id = item['track']['album']['id']
+                release_date = item['track']['album']['release_date']
+                query_albums = f'''
+                                INSERT INTO albums (album_id, release_date, insert_date)
+                                values (%s, %s, %s)
+                                ON CONFLICT (album_id) DO NOTHING;
+                                '''
+                values = (album_id, release_date, insert_date)
+                execute_query(query_albums, values)
 
-                    for artist in item['track']['artists'] : 
-                        artist_id = artist['id']
-                        query_artists = f'''
-                                            INSERT INTO artists (artist_id, insert_date)
-                                            VALUES (%s, %s)
-                                            ON CONFLICT (artist_id) DO NOTHING;
-                                            '''
-                        values = (artist_id, insert_date)
-                        execute_query(query_artists, values)
-            except:
-                pass
-                
+                for artist in item['track']['artists'] : 
+                    artist_id = artist['id']
+                    query_artists = f'''
+                                        INSERT INTO artists (artist_id, insert_date)
+                                        VALUES (%s, %s)
+                                        ON CONFLICT (artist_id) DO NOTHING;
+                                        '''
+                    values = (artist_id, insert_date)
+                    execute_query(query_artists, values)
+
             end_time = time()
             remain_time = 2.0 - (end_time - start_time)
             sleep(remain_time) if remain_time > 0 else sleep(0)
 
     insert_date = datetime.now().strftime("%Y-%m-%d")    
     
-    num_threads = 10
+    num_threads = 12
     length_playlist_ids_thread = ceil(len(playlist_ids) / num_threads)
     playlist_ids_lists = [playlist_ids[i:i+length_playlist_ids_thread] for i in range(0, len(playlist_ids), length_playlist_ids_thread)]
 
@@ -246,7 +241,7 @@ def thread_artists_related_artists(insert_date):
             remain_time = 2.0 - (end_time - start_time)
             sleep(remain_time) if remain_time > 0 else sleep(0)
 
-    num_threads = 10
+    num_threads = 12
     artists_per_thread = ceil(len(id_list) / num_threads)
     thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
 
@@ -293,7 +288,7 @@ def thread_artists_albums(insert_date:str):
             remain_time = 2.0 - (end_time - start_time)
             sleep(remain_time) if remain_time > 0 else sleep(0)  
 
-    num_threads = 10
+    num_threads = 12
     artists_per_thread = ceil(len(id_list) / num_threads)
     thread_list = [id_list[i:i+artists_per_thread] for i in range(0, len(id_list), artists_per_thread)]
 
@@ -307,9 +302,10 @@ def thread_artists_albums(insert_date:str):
         thread.join()
 
 if __name__ == "__main__":
+    pass
     # TEST
     # browse_new_releases()
     # browse_featured_playlists()
     # thread_update_playlist_datas()
     # thread_artists_related_artists(insert_date="2024-01-02")
-    thread_artists_albums(insert_date="2024-01-02")
+    # thread_artists_albums(insert_date="2024-01-02")
